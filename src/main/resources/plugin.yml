@@ -2,3 +2,5 @@ name: Money
 version: '${project.version}'
 main: com.tim.money.Main
 api-version: '1.20'
+commands:
+  money:
