@@ -1,7 +1,7 @@
 package com.tim.money;
 
-import com.tim.money.manager.MoneyCommand;
 import com.tim.money.manager.PlayerMoneyManager;
+import com.tim.money.shop.ShopSignListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -16,6 +16,8 @@ public final class Main extends JavaPlugin {
         playerMoneyManager.loadPlayerMoney();
 
         this.getCommand("money").setExecutor(new MoneyCommand(playerMoneyManager));
+
+        getServer().getPluginManager().registerEvents(new ShopSignListener(), this);
 
         File pluginFolder = getDataFolder();
         if (!pluginFolder.exists()) {
