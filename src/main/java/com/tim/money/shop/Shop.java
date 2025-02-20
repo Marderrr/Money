@@ -36,6 +36,7 @@ public class Shop {
     public double getBuyPrice() {
         return buyPrice;
     }
+
     public void setBuyPrice(double buyPrice) {
         this.buyPrice = buyPrice;
     }
