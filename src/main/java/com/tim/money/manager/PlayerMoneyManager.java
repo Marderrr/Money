@@ -28,6 +28,10 @@ public class PlayerMoneyManager implements Listener {
         initDataFile();
     }
 
+    public PlayerMoneyManager() {
+
+    }
+
     private void initDataFile() {
         if (!plugin.getDataFolder().exists()) {
             plugin.getDataFolder().mkdirs();
