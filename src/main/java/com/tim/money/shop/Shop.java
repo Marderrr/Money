@@ -1,20 +1,23 @@
 package com.tim.money.shop;
 
-import org.bukkit.inventory.ItemStack;
+import org.bukkit.Location;
+import org.bukkit.Material;
 
 public class Shop {
     private String owner;
-    private ItemStack item;
+    private Material item;
     private double buyPrice;
     private double sellPrice;
     private int quantity;
+    private Location location;
 
-    public Shop(String owner, ItemStack item, double buyPrice, double sellPrice, int quantity) {
+    public Shop(String owner, Material item, double buyPrice, double sellPrice, int quantity, Location location) {
         this.owner = owner;
         this.item = item;
         this.buyPrice = buyPrice;
         this.sellPrice = sellPrice;
         this.quantity = quantity;
+        this.location = location;
     }
 
     public String getOwner() {
@@ -25,11 +28,11 @@ public class Shop {
         this.owner = owner;
     }
 
-    public ItemStack getItem() {
+    public Material getItem() {
         return item;
     }
 
-    public void setItem(ItemStack item) {
+    public void setItem(Material item) {
         this.item = item;
     }
 
@@ -55,5 +58,13 @@ public class Shop {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 }
