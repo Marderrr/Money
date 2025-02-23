@@ -2,22 +2,24 @@ package com.tim.money;
 
 import com.tim.money.manager.PlayerMoneyManager;
 import com.tim.money.listener.ShopListener;
+import com.tim.money.manager.ShopManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 
 public final class Main extends JavaPlugin {
-
     private PlayerMoneyManager playerMoneyManager;
     private ShopListener shopListener;
+    private ShopManager shopManager;
 
     @Override
     public void onEnable() {
-        this.playerMoneyManager = new PlayerMoneyManager(this);
-        this.shopListener = new ShopListener(this, playerMoneyManager);
+        playerMoneyManager = new PlayerMoneyManager(this);
+        shopManager = new ShopManager(this);
+        shopListener = new ShopListener(this, playerMoneyManager);
 
         playerMoneyManager.loadPlayerMoney();
-        shopListener.loadShops();
+        shopManager.loadShops();
 
         this.getCommand("money").setExecutor(new MoneyCommand(playerMoneyManager));
 
@@ -37,7 +39,7 @@ public final class Main extends JavaPlugin {
     @Override
     public void onDisable() {
         playerMoneyManager.saveAllPlayerMoney();
-        shopListener.saveShops();
+        shopManager.saveShops();
     }
 
 }
